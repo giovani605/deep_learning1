@@ -21,7 +21,7 @@ learning_rate = 1e-3              # Taxa de aprendizado!!!
 kprob = 0.5                       # Probabilidade para dropout!!!
 TRAIN_DIR = './dog-cat/train'
 TEST_DIR = './dog-cat/test'
-
+    
 # ---------------------------------------------
 
 
@@ -44,15 +44,20 @@ def convolutional_neural_network(x, prob):
         padding="same",
         activation=tf.nn.relu
     )
-
+    
     # Primeira camada de pooling:
     pool1 = tf.layers.max_pooling2d(
         inputs=conv2,
         pool_size=[2, 2],
         strides=1
     )
+    pool2= tf.layers.max_pooling2d(
+        inputs=pool1,
+        pool_size=[2, 2],
+        strides=2
+    )
 
-    flat = tf.contrib.layers.flatten(pool1)
+    flat = tf.contrib.layers.flatten(pool2)
 
     fc1 = tf.contrib.layers.fully_connected(
         inputs=flat, num_outputs=16, activation_fn=tf.nn.relu)
