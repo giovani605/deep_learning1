@@ -1,0 +1,5 @@
+74 % com 2 filtros conv de 16 de de tamaho 3 e 5
+2 filtros de polling medio
+
+77 % com 2 filtros conv de 16 de de tamaho 3 e 5
+1   polling de cada tipo
